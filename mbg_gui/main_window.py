@@ -653,20 +653,52 @@ class MainWindow(tk.Tk):
         ttk.Button(keyword_file_row, text="Muat", command=self._load_keyword_file_from_var).pack(side="left", padx=2)
         ttk.Button(keyword_file_row, text="Simpan", command=self._save_keyword_file_from_var).pack(side="left", padx=2)
 
-        self.keyword_text = ScrolledText(input_box, height=3, font=("Consolas", 9))
-        self.keyword_text.pack(fill="both", expand=True, pady=(2, 6))
-        self.keyword_edit = TextEditAdapter(self.keyword_text)
+        keyword_table_frame = ttk.Frame(input_box)
+        keyword_table_frame.pack(fill="both", expand=True, pady=(2, 4))
+        self.keyword_tree = ttk.Treeview(
+            keyword_table_frame,
+            columns=("No", "Query"),
+            show="headings",
+            height=5,
+            selectmode="extended",
+        )
+        self.keyword_tree.heading("No", text="No")
+        self.keyword_tree.heading("Query", text="Keyword / Boolean Query")
+        self.keyword_tree.column("No", width=42, minwidth=42, anchor="center", stretch=False)
+        self.keyword_tree.column("Query", width=620, minwidth=260, anchor="w", stretch=True)
+        keyword_y = ttk.Scrollbar(keyword_table_frame, orient="vertical", command=self.keyword_tree.yview)
+        keyword_x = ttk.Scrollbar(keyword_table_frame, orient="horizontal", command=self.keyword_tree.xview)
+        self.keyword_tree.configure(yscrollcommand=keyword_y.set, xscrollcommand=keyword_x.set)
+        self.keyword_tree.grid(row=0, column=0, sticky="nsew")
+        keyword_y.grid(row=0, column=1, sticky="ns")
+        keyword_x.grid(row=1, column=0, sticky="ew")
+        keyword_table_frame.columnconfigure(0, weight=1)
+        keyword_table_frame.rowconfigure(0, weight=1)
+        self.keyword_tree.bind("<Double-1>", lambda _event: self._edit_keyword_row())
+
+        keyword_row_tools = ttk.Frame(input_box)
+        keyword_row_tools.pack(fill="x", pady=(0, 6))
+        ttk.Button(keyword_row_tools, text="Tambah Baris", command=self._add_keyword_row).pack(side="left", padx=(0, 4))
+        ttk.Button(keyword_row_tools, text="Edit Baris", command=self._edit_keyword_row).pack(side="left", padx=2)
+        ttk.Button(keyword_row_tools, text="Hapus Terpilih", command=self._delete_keyword_rows).pack(side="left", padx=2)
+        ttk.Button(keyword_row_tools, text="Naik", command=lambda: self._move_keyword_rows(-1)).pack(side="left", padx=2)
+        ttk.Button(keyword_row_tools, text="Turun", command=lambda: self._move_keyword_rows(1)).pack(side="left", padx=2)
+        self.keyword_count_var = tk.StringVar(value="0 query")
+        ttk.Label(keyword_row_tools, textvariable=self.keyword_count_var, foreground=COLOR_MUTED).pack(side="right")
+        self.keyword_edit = KeywordTableAdapter(self)
         self._load_initial_keywords()
 
         # Files frame
         file_box = ttk.LabelFrame(left_box, text=" Lokasi Penyimpanan Hasil ", style="Section.TLabelframe", padding=8)
         file_box.pack(fill="x")
 
+        default_cp = ROOT / "output" / "checkpoint_direct_replies.json"
+        default_output = self._default_scrape_output_path(default_cp)
+
         # Output CSV
         f_row1 = ttk.Frame(file_box)
         f_row1.pack(fill="x", pady=2)
         ttk.Label(f_row1, text="File CSV:", width=12).pack(side="left")
-        default_output = ROOT / "output" / f"MBG_Dataset_DirectReplies_{datetime.now().strftime('%Y%m%d_%H%M')}.csv"
         self.output_path_var = tk.StringVar(value=str(default_output))
         ttk.Entry(f_row1, textvariable=self.output_path_var).pack(side="left", fill="x", expand=True, padx=4)
         ttk.Button(f_row1, text="Browse...", command=self._pick_output_csv).pack(side="right")
@@ -676,7 +708,6 @@ class MainWindow(tk.Tk):
         f_row2 = ttk.Frame(file_box)
         f_row2.pack(fill="x", pady=2)
         ttk.Label(f_row2, text="Checkpoint:", width=12).pack(side="left")
-        default_cp = ROOT / "output" / "checkpoint_direct_replies.json"
         self.checkpoint_path_var = tk.StringVar(value=str(default_cp))
         ttk.Entry(f_row2, textvariable=self.checkpoint_path_var).pack(side="left", fill="x", expand=True, padx=4)
         ttk.Button(f_row2, text="Browse...", command=self._pick_checkpoint_json).pack(side="right")
@@ -745,12 +776,19 @@ class MainWindow(tk.Tk):
         return cleaned
 
     def _current_keyword_lines(self) -> list[str]:
-        return self._dedupe_keyword_lines(self.keyword_text.get("1.0", "end").splitlines())
+        lines: list[str] = []
+        for item in self.keyword_tree.get_children():
+            values = self.keyword_tree.item(item, "values")
+            if len(values) >= 2:
+                lines.append(str(values[1]))
+        return self._dedupe_keyword_lines(lines)
 
     def _replace_keyword_lines(self, lines: list[str] | tuple[str, ...]) -> None:
-        default_kw = "\n".join(self._dedupe_keyword_lines(lines))
-        self.keyword_text.delete("1.0", "end")
-        self.keyword_text.insert("1.0", default_kw)
+        for item in self.keyword_tree.get_children():
+            self.keyword_tree.delete(item)
+        for query in self._dedupe_keyword_lines(lines):
+            self.keyword_tree.insert("", "end", values=("", query))
+        self._renumber_keyword_rows()
 
     def _append_keyword_lines(self, lines: list[str] | tuple[str, ...]) -> None:
         merged = [*self._current_keyword_lines(), *self._dedupe_keyword_lines(lines)]
@@ -767,8 +805,80 @@ class MainWindow(tk.Tk):
         self.set_status(f"Preset keyword '{label}' {action}: {len(lines):,} query.")
 
     def _clear_keywords(self) -> None:
-        self.keyword_text.delete("1.0", "end")
+        for item in self.keyword_tree.get_children():
+            self.keyword_tree.delete(item)
+        self._renumber_keyword_rows()
         self.set_status("Daftar keyword dikosongkan. Isi manual, muat file, atau pilih preset sebelum scraping.")
+
+    def _renumber_keyword_rows(self) -> None:
+        for index, item in enumerate(self.keyword_tree.get_children(), 1):
+            values = self.keyword_tree.item(item, "values")
+            query = str(values[1]) if len(values) >= 2 else ""
+            self.keyword_tree.item(item, values=(index, query))
+        total = len(self.keyword_tree.get_children())
+        self.keyword_count_var.set(f"{total:,} query")
+
+    def _prompt_keyword_query(self, title: str, initial: str = "") -> str | None:
+        value = simpledialog.askstring(
+            title,
+            "Isi satu keyword atau Boolean query:",
+            initialvalue=initial,
+            parent=self,
+        )
+        if value is None:
+            return None
+        return value.strip()
+
+    def _add_keyword_row(self) -> None:
+        query = self._prompt_keyword_query("Tambah Keyword")
+        if not query:
+            return
+        self._append_keyword_lines([query])
+        self.set_status("Keyword baru ditambahkan ke tabel.")
+
+    def _edit_keyword_row(self) -> None:
+        selected = self.keyword_tree.selection()
+        if not selected:
+            messagebox.showwarning("Pilih Keyword", "Pilih satu baris keyword yang ingin diedit.")
+            return
+        item = selected[0]
+        values = self.keyword_tree.item(item, "values")
+        current = str(values[1]) if len(values) >= 2 else ""
+        updated = self._prompt_keyword_query("Edit Keyword", current)
+        if updated is None:
+            return
+        if not updated:
+            self.keyword_tree.delete(item)
+        else:
+            self.keyword_tree.item(item, values=(values[0], updated))
+        self._replace_keyword_lines(self._current_keyword_lines())
+        self.set_status("Keyword terpilih diperbarui.")
+
+    def _delete_keyword_rows(self) -> None:
+        selected = self.keyword_tree.selection()
+        if not selected:
+            messagebox.showwarning("Pilih Keyword", "Pilih minimal satu baris keyword yang ingin dihapus.")
+            return
+        for item in selected:
+            self.keyword_tree.delete(item)
+        self._renumber_keyword_rows()
+        self.set_status(f"{len(selected):,} keyword dihapus dari tabel.")
+
+    def _move_keyword_rows(self, direction: int) -> None:
+        selected = list(self.keyword_tree.selection())
+        if not selected:
+            return
+        ordered = list(self.keyword_tree.get_children())
+        if direction > 0:
+            selected = list(reversed(selected))
+        for item in selected:
+            index = ordered.index(item)
+            new_index = index + direction
+            if 0 <= new_index < len(ordered):
+                self.keyword_tree.move(item, "", new_index)
+                ordered = list(self.keyword_tree.get_children())
+        self._renumber_keyword_rows()
+        self.keyword_tree.selection_set(selected)
 
     def _read_keyword_file(self, path: Path) -> list[str]:
         return self._dedupe_keyword_lines(path.read_text(encoding="utf-8-sig").splitlines())
@@ -827,6 +937,44 @@ class MainWindow(tk.Tk):
         except OSError as exc:
             messagebox.showerror("Gagal Menyimpan Keyword", str(exc))
 
+    def _checkpoint_bound_output_path(self, checkpoint_path: Path) -> Path | None:
+        if not checkpoint_path.is_file():
+            return None
+        try:
+            payload = json.loads(checkpoint_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            return None
+
+        has_state = any(
+            payload.get(key)
+            for key in ("seen_ids", "done_queries", "step2_queue", "root_status")
+        )
+        output_file = str(payload.get("output_file") or "").strip()
+        if has_state and output_file:
+            return Path(output_file)
+        return None
+
+    def _default_scrape_output_path(self, checkpoint_path: Path) -> Path:
+        bound_output = self._checkpoint_bound_output_path(checkpoint_path)
+        if bound_output:
+            return bound_output
+        return ROOT / "output" / f"MBG_Dataset_DirectReplies_{datetime.now().strftime('%Y%m%d_%H%M')}.csv"
+
+    def _apply_checkpoint_output_binding(self) -> None:
+        checkpoint = Path(self.checkpoint_path_var.get().strip())
+        bound_output = self._checkpoint_bound_output_path(checkpoint)
+        if not bound_output:
+            return
+        self.output_path_var.set(str(bound_output))
+        self.set_status("Checkpoint aktif terdeteksi; file CSV diarahkan ke output resume yang sama.")
+
+    @staticmethod
+    def _same_path(left: Path, right: Path) -> bool:
+        try:
+            return left.resolve() == right.resolve()
+        except OSError:
+            return str(left) == str(right)
+
     def _pick_output_csv(self) -> None:
         chosen = filedialog.asksaveasfilename(
             initialdir=str(ROOT / "output"),
@@ -846,12 +994,20 @@ class MainWindow(tk.Tk):
         )
         if chosen:
             self.checkpoint_path_var.set(chosen)
+            self._apply_checkpoint_output_binding()
 
     def _scraper_arguments(self) -> list[str]:
         output = self.output_path_var.get().strip()
         checkpoint = self.checkpoint_path_var.get().strip()
         if not output or not checkpoint:
             raise ValueError("File output CSV dan checkpoint JSON wajib ditentukan.")
+        bound_output = self._checkpoint_bound_output_path(Path(checkpoint))
+        if bound_output and not self._same_path(Path(output), bound_output):
+            raise ValueError(
+                "Checkpoint aktif sudah terikat ke CSV:\n"
+                f"{bound_output}\n\n"
+                "Untuk resume, pakai file CSV tersebut. Untuk output baru, pilih nama checkpoint baru."
+            )
 
         mode = self.method_combo.currentData()
         seeds = parse_seed_ids([self.seed_text.get("1.0", "end")])

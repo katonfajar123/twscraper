@@ -171,14 +171,17 @@ Keyword default GUI dan CLI ada di:
 config/scraping_keywords.txt
 ```
 
-Isi file tersebut satu keyword atau Boolean query per baris. Di tab **2 - Ekstraksi Data**, pengguna juga bisa:
+Isi file tersebut satu keyword atau Boolean query per baris. Di tab **2 - Ekstraksi Data**, keyword ditampilkan sebagai tabel editable supaya setiap query mudah dicek sebelum scraping. Pengguna bisa:
 
 - memilih preset **Query FSD Ringkas**, **Keyword Scraper Lama**, grup riset dari `keywords.py`, atau **Semua Grup Keyword Riset**;
 - klik **Pakai Preset** untuk mengganti isi query, atau **Tambah Preset** untuk menggabungkan dengan query yang sudah diketik;
+- klik **Tambah Baris**, **Edit Baris**, **Hapus Terpilih**, **Naik**, atau **Turun** untuk mengelola urutan query;
 - klik **Muat** untuk membaca file keyword sendiri;
 - klik **Simpan** untuk menyimpan daftar keyword yang sudah diedit dari GUI.
 
-Saat mode Hybrid atau Keyword Search dijalankan, setiap baris query di kotak ini diteruskan ke scraper sebagai `--keyword` terpisah.
+Saat mode Hybrid atau Keyword Search dijalankan, setiap baris tabel diteruskan ke scraper sebagai `--keyword` terpisah.
+
+Jika checkpoint aktif sudah memiliki data resume, GUI otomatis mengisi field CSV dari `output_file` di checkpoint tersebut. Untuk melanjutkan 1.970 data durable, pakai pasangan checkpoint dan CSV yang sama; untuk dataset baru, gunakan nama checkpoint baru juga.
 
 ---
 

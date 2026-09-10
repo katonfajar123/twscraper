@@ -4,6 +4,15 @@
 
 ### Phase: Agentic Foundation
 
+#### [2026-09-10 13:32 WIB]
+[FEAT] - Mengubah input keyword scraping menjadi tabel editable
+{ DETAILS CHANGE } - Tab Ekstraksi kini memakai tabel keyword dengan tambah/edit/hapus/naik/turun, preset dan file load/save tetap didukung, serta setiap baris dikirim sebagai --keyword.
+
+#### [2026-09-10 13:32 WIB]
+[FIX] - Menyamakan default CSV GUI dengan output_file checkpoint aktif
+{ ISSUE } - GUI membuat nama CSV baru saat checkpoint lama berisi 1.970 data durable, sehingga scraper gagal karena checkpoint terikat ke output berbeda.
+{ DETAILS CHANGE } - GUI membaca output_file dari checkpoint aktif untuk resume dan memvalidasi mismatch CSV/checkpoint sebelum subprocess dijalankan.
+
 #### [2026-09-10 13:13 WIB]
 [FEAT] - Membuka pengaturan keyword scraping dari GUI dan file config
 { DETAILS CHANGE } - Menambah config/scraping_keywords.txt, preset grup keyword, tombol muat/simpan keyword di tab Ekstraksi, dan default CLI membaca file config saat --keyword kosong.
