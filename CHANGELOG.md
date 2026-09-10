@@ -4,6 +4,10 @@
 
 ### Phase: Agentic Foundation
 
+#### [2026-09-10 23:29 WIB]
+[CHORE] - Memperbarui dataset dan checkpoint direct replies
+{ DETAILS CHANGE } - CSV direct replies aktif dan checkpoint sinkron pada 3.469 Tweet_ID unik; audit lokal memastikan BOM utf-8-sig, kolom inti lengkap, 0 duplikat, dan 0 core row kosong.
+
 #### [2026-09-10 13:32 WIB]
 [FEAT] - Mengubah input keyword scraping menjadi tabel editable
 { DETAILS CHANGE } - Tab Ekstraksi kini memakai tabel keyword dengan tambah/edit/hapus/naik/turun, preset dan file load/save tetap didukung, serta setiap baris dikirim sebagai --keyword.
