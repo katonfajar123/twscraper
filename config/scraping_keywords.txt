@@ -1,17 +1,2 @@
-"makan bergizi gratis" OR "program mbg" OR "makan siang gratis"
+"Inixindo" OR "Pelatihan IT" OR "Training Inixindo"
 ("makan bergizi" OR "mbg") AND ("prabowo" OR "gibran" OR "anggaran" OR "sekolah" OR "gizi")
-MBG
-makan bergizi gratis
-embege
-#MBG
-#MakanBergiziGratis
-mbg prabowo
-program mbg
-makan gratis sekolah
-mbg sekolah
-dapur mbg
-mbg gagal
-mbg korupsi
-mbg basi
-mbg enak
-mbg merata
