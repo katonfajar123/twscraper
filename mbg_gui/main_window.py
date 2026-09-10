@@ -24,7 +24,7 @@ import uuid
 import webbrowser
 from datetime import datetime
 from pathlib import Path
-from tkinter import filedialog, messagebox, ttk
+from tkinter import filedialog, messagebox, simpledialog, ttk
 from tkinter.scrolledtext import ScrolledText
 from typing import Any
 
@@ -86,6 +86,29 @@ class TextEditAdapter:
 
     def delete(self, *args, **kwargs) -> None:
         self._w.delete(*args, **kwargs)
+
+
+class KeywordTableAdapter:
+    """Compatibility adapter exposing text-like helpers for the keyword table."""
+
+    def __init__(self, window: "MainWindow"):
+        self._window = window
+
+    def toPlainText(self) -> str:
+        return "\n".join(self._window._current_keyword_lines())
+
+    def setPlainText(self, text: str) -> None:
+        self._window._replace_keyword_lines(text.splitlines())
+
+    def get(self, *args, **kwargs) -> str:
+        return self.toPlainText()
+
+    def insert(self, *_args, **_kwargs) -> None:
+        text = str(_args[-1]) if _args else ""
+        self._window._append_keyword_lines(text.splitlines())
+
+    def delete(self, *args, **kwargs) -> None:
+        self._window._clear_keywords()
 
 
 class EntryAdapter:
