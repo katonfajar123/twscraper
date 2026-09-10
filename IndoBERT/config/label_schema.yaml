@@ -1,0 +1,29 @@
+version: "1.0"
+aspect_labels:
+  - Mutu_Gizi
+  - Tata_Kelola
+  - Distribusi
+sentiment_labels:
+  - Positif
+  - Netral
+  - Negatif
+subcategories:
+  Mutu_Gizi:
+    - Kecukupan_Porsi_dan_Nutrisi
+    - Variasi_dan_Rasa_Menu
+    - Keamanan_Konsumsi
+  Tata_Kelola:
+    - Standardisasi_Vendor_dan_Dapur
+    - Transparansi_dan_Efisiensi_Anggaran
+    - Responsivitas_Aduan
+  Distribusi:
+    - Ketepatan_Waktu_Logistik
+    - Pemerataan_Jangkauan_3T
+    - Kondisi_Fisik_dan_Pembagian
+annotation_status:
+  - LABELED
+  - UNCLEAR
+  - ADJUDICATED
+prediction_status:
+  - ACCEPTED
+  - NEEDS_REVIEW

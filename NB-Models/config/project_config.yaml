@@ -1,0 +1,83 @@
+dataset_path: ../output/MBG_Dataset_DirectReplies_20260907_0825.csv
+random_seed: 20260907
+label_guide_version: "1.0"
+
+target_categories:
+  - Mutu_Gizi
+  - Tata_Kelola
+  - Distribusi
+
+target_subcategories:
+  Mutu_Gizi:
+    - Kecukupan_Porsi_dan_Nutrisi
+    - Variasi_dan_Rasa_Menu
+    - Keamanan_Konsumsi
+  Tata_Kelola:
+    - Standardisasi_Vendor_dan_Dapur
+    - Transparansi_dan_Efisiensi_Anggaran
+    - Responsivitas_Aduan
+  Distribusi:
+    - Ketepatan_Waktu_Logistik
+    - Pemerataan_Jangkauan_3T
+    - Kondisi_Fisik_dan_Pembagian
+
+split_ratios:
+  train: 0.70
+  validation: 0.15
+  test: 0.15
+
+preprocessing_options:
+  lowercase: true
+  remove_urls: true
+  remove_mentions: true
+  remove_hashtags: false
+  remove_punct: true
+  normalize_slang: true
+  stemming: false
+
+experiment_grid:
+  alpha_values: [0.01, 0.03, 0.1, 0.3, 0.5, 1.0, 2.0]
+
+word_tfidf:
+  ngram_range: [1, 2]
+
+char_tfidf:
+  ngram_range: [3, 5]
+
+pilot_size: 300
+max_samples_per_root: 5
+
+production_gates:
+  macro_f1_min: 0.85
+  recall_min: 0.80
+  balanced_accuracy_min: 0.85
+  val_test_gap_max: 0.05
+
+aspect_candidate_rules_file: config/aspect_candidate_rules.yaml
+slang_dict_file: config/slang_dict.yaml
+
+negation_words:
+  - tidak
+  - bukan
+  - belum
+  - jangan
+  - kurang
+  - tanpa
+
+domain_terms:
+  - MBG
+  - SPPG
+  - BGN
+  - 3T
+  - SLHS
+  - HACCP
+
+annotation_columns:
+  - Kategori_Utama
+  - Subkategori_Primer
+  - Kategori_Sekunder
+  - Annotation_Status
+  - Annotator_1
+  - Annotator_2
+  - Adjudicated_Label
+  - Label_Guide_Version

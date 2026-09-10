@@ -1,0 +1,7 @@
+# Acquisition engine (Bab 1) and browser-like TLS backend (Bab 7.2)
+twscrape[curl]==0.20.1
+
+# Desktop GUI, async event-loop bridge, and tabular processing stack
+PyQt6==6.11.0
+qasync==0.28.0
+pandas==2.3.3

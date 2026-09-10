@@ -1,0 +1,48 @@
+QWidget {
+    font-family: "Segoe UI";
+    font-size: 10pt;
+    color: #172033;
+}
+QMainWindow, QTabWidget::pane { background: #f4f7fb; }
+QTabBar::tab {
+    background: #e7edf6;
+    padding: 11px 18px;
+    margin-right: 2px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+QTabBar::tab:selected { background: #ffffff; color: #0b6b53; font-weight: 600; }
+QGroupBox {
+    background: #ffffff;
+    border: 1px solid #dce4ef;
+    border-radius: 10px;
+    margin-top: 14px;
+    padding: 14px;
+    font-weight: 600;
+}
+QGroupBox::title { subcontrol-origin: margin; left: 12px; padding: 0 5px; }
+QLineEdit, QPlainTextEdit, QTextBrowser, QComboBox, QSpinBox, QDoubleSpinBox,
+QTableView, QTableWidget {
+    background: #ffffff;
+    border: 1px solid #cbd6e5;
+    border-radius: 6px;
+    padding: 5px;
+    selection-background-color: #d7f3e9;
+    selection-color: #10241e;
+}
+QPushButton {
+    background: #e7edf6;
+    border: 1px solid #cbd6e5;
+    border-radius: 6px;
+    padding: 7px 12px;
+}
+QPushButton:hover { background: #dbe5f1; }
+QPushButton:disabled { color: #8b96a8; background: #eef2f7; }
+QPushButton#primaryButton { background: #087f5b; color: white; border-color: #087f5b; font-weight: 600; }
+QPushButton#primaryButton:hover { background: #066b4d; }
+QPushButton#dangerButton { background: #c92a2a; color: white; border-color: #c92a2a; font-weight: 600; }
+QLabel#pageTitle { font-size: 18pt; font-weight: 700; color: #102a43; }
+QLabel#infoBanner { background: #e8f4fd; border: 1px solid #a9d4f5; border-radius: 8px; padding: 12px; }
+QProgressBar { border: 1px solid #cbd6e5; border-radius: 7px; text-align: center; background: white; min-height: 22px; }
+QProgressBar::chunk { background: #12a37f; border-radius: 6px; }
+QHeaderView::section { background: #e7edf6; padding: 7px; border: 0; border-right: 1px solid #d4deea; font-weight: 600; }

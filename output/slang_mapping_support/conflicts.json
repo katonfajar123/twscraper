@@ -1,0 +1,565 @@
+[
+  {
+    "slang": "or",
+    "options": [
+      "atau",
+      "orang"
+    ],
+    "frekuensi": 21
+  },
+  {
+    "slang": "dh",
+    "options": [
+      "dah",
+      "deh",
+      "sudah"
+    ],
+    "frekuensi": 13
+  },
+  {
+    "slang": "jan",
+    "options": [
+      "jangan",
+      "januari"
+    ],
+    "frekuensi": 11
+  },
+  {
+    "slang": "ono",
+    "options": [
+      "ada",
+      "sono"
+    ],
+    "frekuensi": 11
+  },
+  {
+    "slang": "anjirr",
+    "options": [
+      "anjing",
+      "anjir"
+    ],
+    "frekuensi": 10
+  },
+  {
+    "slang": "anjirrr",
+    "options": [
+      "anjing",
+      "anjir"
+    ],
+    "frekuensi": 10
+  },
+  {
+    "slang": "bilangin",
+    "options": [
+      "bilang",
+      "sampaikan"
+    ],
+    "frekuensi": 10
+  },
+  {
+    "slang": "ms",
+    "options": [
+      "masih",
+      "yang benar"
+    ],
+    "frekuensi": 9
+  },
+  {
+    "slang": "da",
+    "options": [
+      "ada",
+      "dah",
+      "sudah"
+    ],
+    "frekuensi": 8
+  },
+  {
+    "slang": "th",
+    "options": [
+      "tahu",
+      "tahun",
+      "teh"
+    ],
+    "frekuensi": 7
+  },
+  {
+    "slang": "de",
+    "options": [
+      "deh",
+      "dek"
+    ],
+    "frekuensi": 7
+  },
+  {
+    "slang": "kya",
+    "options": [
+      "kaya",
+      "seperti"
+    ],
+    "frekuensi": 6
+  },
+  {
+    "slang": "ja",
+    "options": [
+      "saja",
+      "ya"
+    ],
+    "frekuensi": 5
+  },
+  {
+    "slang": "wk",
+    "options": [
+      "hahaha",
+      "waktu"
+    ],
+    "frekuensi": 4
+  },
+  {
+    "slang": "bhs",
+    "options": [
+      "bahas",
+      "bahasa"
+    ],
+    "frekuensi": 3
+  },
+  {
+    "slang": "dech",
+    "options": [
+      "deh",
+      "sudah"
+    ],
+    "frekuensi": 3
+  },
+  {
+    "slang": "lau",
+    "options": [
+      "kalau",
+      "kau"
+    ],
+    "frekuensi": 3
+  },
+  {
+    "slang": "le",
+    "options": [
+      "boleh",
+      "sang"
+    ],
+    "frekuensi": 3
+  },
+  {
+    "slang": "looo",
+    "options": [
+      "kamu",
+      "loh"
+    ],
+    "frekuensi": 3
+  },
+  {
+    "slang": "yeee",
+    "options": [
+      "iya",
+      "ya"
+    ],
+    "frekuensi": 3
+  },
+  {
+    "slang": "yoo",
+    "options": [
+      "ayo",
+      "ya"
+    ],
+    "frekuensi": 3
+  },
+  {
+    "slang": "abg",
+    "options": [
+      "abang",
+      "remaja tanggung"
+    ],
+    "frekuensi": 2
+  },
+  {
+    "slang": "bt",
+    "options": [
+      "buat",
+      "kesal"
+    ],
+    "frekuensi": 2
+  },
+  {
+    "slang": "kw",
+    "options": [
+      "kau",
+      "kualitas"
+    ],
+    "frekuensi": 2
+  },
+  {
+    "slang": "njirr",
+    "options": [
+      "anjing",
+      "anjir"
+    ],
+    "frekuensi": 2
+  },
+  {
+    "slang": "temennya",
+    "options": [
+      "teman-nya",
+      "temannya"
+    ],
+    "frekuensi": 2
+  },
+  {
+    "slang": "tuch",
+    "options": [
+      "itu",
+      "tuh"
+    ],
+    "frekuensi": 2
+  },
+  {
+    "slang": "tuhh",
+    "options": [
+      "itu",
+      "tuh"
+    ],
+    "frekuensi": 2
+  },
+  {
+    "slang": "yaak",
+    "options": [
+      "iya",
+      "ya"
+    ],
+    "frekuensi": 2
+  },
+  {
+    "slang": "yahhh",
+    "options": [
+      "ya",
+      "yah"
+    ],
+    "frekuensi": 2
+  },
+  {
+    "slang": "yha",
+    "options": [
+      "iya",
+      "ya"
+    ],
+    "frekuensi": 2
+  },
+  {
+    "slang": "yukkk",
+    "options": [
+      "ayo",
+      "yuk"
+    ],
+    "frekuensi": 2
+  },
+  {
+    "slang": "kta",
+    "options": [
+      "kata",
+      "kita"
+    ],
+    "frekuensi": 2
+  },
+  {
+    "slang": "lw",
+    "options": [
+      "kalau",
+      "kamu"
+    ],
+    "frekuensi": 2
+  },
+  {
+    "slang": "buktiin",
+    "options": [
+      "buktikan",
+      "membuktikan"
+    ],
+    "frekuensi": 2
+  },
+  {
+    "slang": "nyaranin",
+    "options": [
+      "menyarani",
+      "menyarankan"
+    ],
+    "frekuensi": 2
+  },
+  {
+    "slang": "sp",
+    "options": [
+      "sapa",
+      "siapa"
+    ],
+    "frekuensi": 2
+  },
+  {
+    "slang": "banyakin",
+    "options": [
+      "dibanyaki",
+      "membanyaki"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "bc",
+    "options": [
+      "baca",
+      "karena"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "brg",
+    "options": [
+      "barang",
+      "bareng"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "cieee",
+    "options": [
+      "cie",
+      "ciye"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "coment",
+    "options": [
+      "komen",
+      "komentar"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "dapetin",
+    "options": [
+      "mendapati",
+      "mendapatkan"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "ea",
+    "options": [
+      "iya",
+      "ya"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "hayooo",
+    "options": [
+      "ayo",
+      "hayo"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "kakk",
+    "options": [
+      "kak",
+      "kakak"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "ktemu",
+    "options": [
+      "bertemu",
+      "ketemu"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "leh",
+    "options": [
+      "boleh",
+      "lah"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "mbuh",
+    "options": [
+      "belum",
+      "embuh"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "ngeh",
+    "options": [
+      "engah",
+      "sadar"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "nihhh",
+    "options": [
+      "ini",
+      "nih"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "niih",
+    "options": [
+      "ini",
+      "nih"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "nyesek",
+    "options": [
+      "menyesak",
+      "sesak"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "nyo",
+    "options": [
+      "ayo",
+      "nya"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "sbb",
+    "options": [
+      "maaf baru balas",
+      "sebab"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "tau2",
+    "options": [
+      "tahu-tahu",
+      "tau-tau"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "testi",
+    "options": [
+      "kesaksian",
+      "testimoni"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "yakk",
+    "options": [
+      "iya",
+      "ya"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "yokk",
+    "options": [
+      "ayo",
+      "yuk"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "yukk",
+    "options": [
+      "ayo",
+      "yuk"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "yup",
+    "options": [
+      "iya",
+      "ya"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "yuuk",
+    "options": [
+      "ayo",
+      "yuk"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "saranin",
+    "options": [
+      "menyarankan",
+      "sarankan"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "mlu",
+    "options": [
+      "malu",
+      "melulu"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "rekomendasiin",
+    "options": [
+      "merekomendasikan",
+      "rekomendasikan"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "thu",
+    "options": [
+      "itu",
+      "tuh"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "keq",
+    "options": [
+      "kek",
+      "seperti"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "lh",
+    "options": [
+      "boleh",
+      "lah"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "ngata2in",
+    "options": [
+      "mengata-ngatai",
+      "mengatai-ngatai"
+    ],
+    "frekuensi": 1
+  },
+  {
+    "slang": "pahamin",
+    "options": [
+      "memahami",
+      "pahami"
+    ],
+    "frekuensi": 1
+  }
+]

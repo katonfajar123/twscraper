@@ -1,0 +1,7 @@
+accounts.db
+accounts.txt
+.env
+*.jsonl
+*.log
+__pycache__/
+*.pyc

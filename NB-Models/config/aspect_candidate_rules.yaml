@@ -1,0 +1,71 @@
+# WARNING: These rules are for candidate sampling ONLY, NOT ground truth.
+# Used purely to ensure enough positive examples during pilot sampling.
+
+Mutu_Gizi:
+  keywords:
+    - porsi
+    - gizi
+    - nutrisi
+    - protein
+    - kalori
+    - karbohidrat
+    - sayur
+    - buah
+    - lauk
+    - menu
+    - rasa
+    - hambar
+    - asin
+    - manis
+    - enak
+    - kenyang
+    - basi
+    - busuk
+    - berjamur
+    - keracunan
+    - mual
+    - diare
+    - higienis
+    - higiene
+    - sanitasi
+    - kontaminasi
+    - kedaluwarsa
+
+Tata_Kelola:
+  keywords:
+    - vendor
+    - dapur
+    - mitra
+    - SPPG
+    - sertifikasi
+    - anggaran
+    - dana
+    - biaya
+    - korupsi
+    - audit
+    - transparan
+    - akuntabel
+    - pengaduan
+    - aduan
+    - tindak lanjut
+    - BGN
+    - SOP
+    - inspeksi
+    - verifikasi
+
+Distribusi:
+  keywords:
+    - terlambat
+    - kirim
+    - logistik
+    - distribusi
+    - jangkauan
+    - 3T
+    - pelosok
+    - perbatasan
+    - kemasan
+    - bocor
+    - tumpah
+    - pembagian
+    - paket
+    - wadah

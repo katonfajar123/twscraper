@@ -1,0 +1,5 @@
+"""IndoBERT ABSA scaffold for MBG Twitter/X comments."""
+
+from .schema import ASPECT_LABELS, SENTIMENT_LABELS, SUBCATEGORIES_BY_ASPECT
+
+__all__ = ["ASPECT_LABELS", "SENTIMENT_LABELS", "SUBCATEGORIES_BY_ASPECT"]

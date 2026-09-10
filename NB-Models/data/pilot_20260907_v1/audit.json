@@ -1,0 +1,157 @@
+{
+  "status": "PENDING_TWO_INDEPENDENT_HUMAN_ANNOTATORS",
+  "created_at": "2026-09-07T15:47:53.364566+07:00",
+  "source_audit": {
+    "total_rows": 20000,
+    "unique_tweet_ids": 20000,
+    "duplicate_tweet_ids": {
+      "count": 0,
+      "list": []
+    },
+    "root_count": 2306,
+    "direct_reply_count": 17694,
+    "nested_reply_count": 0,
+    "roots_with_direct_replies": 191,
+    "root_relationship_validation": true,
+    "direct_reply_validation": true,
+    "orphan_replies_count": 0,
+    "missing_text_count": 0,
+    "reply_per_root_stats": {
+      "min": 2.0,
+      "max": 335.0,
+      "mean": 92.63874345549738,
+      "median": 36.0,
+      "std": 94.36039739375583,
+      "percentiles": {
+        "25": 31.5,
+        "50": 36.0,
+        "75": 131.0,
+        "90": 280.0,
+        "95": 307.5,
+        "99": 323.2
+      }
+    },
+    "high_reply_roots": {
+      "2018263126114754614": 335,
+      "2022255890133651540": 325,
+      "1958459925472141690": 323,
+      "1974339875752309143": 321,
+      "1919600034460348506": 314,
+      "1990222341687910706": 314,
+      "2026537644721844659": 310,
+      "1967091223149375864": 309,
+      "1917784225249636367": 308,
+      "1967503899688087724": 308,
+      "2014214195659899161": 307,
+      "2021930606360506488": 297,
+      "1919415902879023381": 290,
+      "2015727069381177450": 289,
+      "1919363112299528344": 285,
+      "1968470792854978655": 285,
+      "1990441460798472686": 285,
+      "1919676005943542260": 284,
+      "1919638486786965697": 282,
+      "2010970065609359372": 280,
+      "2008397368291655752": 278,
+      "2009100069522559063": 261,
+      "1919682613088027096": 260,
+      "1919741437429592138": 258,
+      "1920024711091913002": 257,
+      "2022234307708833869": 241,
+      "1971543596244623542": 240,
+      "2021887009606783070": 219,
+      "1971073094778511523": 207,
+      "1972234934489346217": 205,
+      "1960516627977658771": 202,
+      "1983440825863549077": 201
+    },
+    "language_distribution": {
+      "in": 19911,
+      "en": 57,
+      "qme": 5,
+      "tl": 4,
+      "und": 4,
+      "it": 3,
+      "ht": 3,
+      "qht": 3,
+      "es": 2,
+      "ja": 2,
+      "qst": 1,
+      "is": 1,
+      "ko": 1,
+      "nl": 1,
+      "fr": 1,
+      "et": 1
+    },
+    "source_distribution": {
+      "REPLY_TWEET_ID": 17694,
+      "KEYWORD_SEARCH": 2306
+    },
+    "hierarchy_distribution": {
+      "Direct_Reply": 17694,
+      "Root_Tweet": 2306
+    },
+    "file": "MBG_Dataset_DirectReplies_20260907_0825.csv",
+    "sha256": "4d87565d1d58c3e68d4f8fe249bd1aa2223bc380276e26cea15ec5b78ed35f6b",
+    "encoding": "utf-8-sig",
+    "physical_lines": 30642,
+    "empty_core": {
+      "Tweet_ID": 0,
+      "Root_Tweet_ID": 0,
+      "Conversation_ID": 0,
+      "In_Reply_To_Tweet_ID": 2306,
+      "Waktu_Posting": 0,
+      "Username": 0,
+      "Teks_Komentar": 0,
+      "Jumlah_Likes": 0,
+      "Jumlah_Retweet": 0,
+      "Sumber_Akuisisi": 0,
+      "Hierarki_Komentar": 0
+    },
+    "checkpoint": {
+      "file": "checkpoint_direct_replies_20260907.json",
+      "sha256": "c051823486d9e9e06599c571d661499e3dad927d8888bb8b9e8b553d26eaa1d5",
+      "seen_ids": 20000,
+      "csv_only": 0,
+      "checkpoint_only": 0
+    }
+  },
+  "random_seed": 20260907,
+  "label_guide_version": "1.0",
+  "label_guide_sha256": "087d394c05aef5eb559a04db92c715af999fbe7b114f6abf6369bdd66904511f",
+  "config_sha256": "5e8ff2326a49243505264fea1400c3189368bac2b1d15547e6412e4880766c0f",
+  "rules_sha256": "583b122321c20bb0d76a9dc0c0bb4c2570ab21bf35d2dc055e2fd57a30a02d9c",
+  "code_sha256": {
+    "pilot.py": "2ed576df944d68219b2132429cbcf7b8ffa1dd8a4aa6fc83631e2004dbaeace8",
+    "sampling.py": "50a86f778f3d140e93a4b1a7380798b3769c53722604b8f33b5b91d93fdaa3a3"
+  },
+  "pilot_rows": 300,
+  "unique_ids": 300,
+  "unique_roots": 158,
+  "max_samples_per_root": 5,
+  "root_cap": 5,
+  "source_strata": {
+    "No_Signal": 14077,
+    "Mutu_Gizi_Signal": 2145,
+    "Tata_Kelola_Signal": 1044,
+    "Overlap": 356,
+    "Distribusi_Signal": 72
+  },
+  "pilot_strata": {
+    "No_Signal": 60,
+    "Overlap": 60,
+    "Tata_Kelola_Signal": 60,
+    "Mutu_Gizi_Signal": 60,
+    "Distribusi_Signal": 60
+  },
+  "reproducibility_verified": true,
+  "human_labels_completed": 0,
+  "normalized_identical_text_groups_across_roots": 22,
+  "near_duplicate_audit": "Pending before train/validation/test split; no split created",
+  "notes": [
+    "Strata are candidate signals, not labels or population prevalence.",
+    "Blank parent IDs are valid for root tweets.",
+    "Canonical CSV preserves raw text; use XLSX for manual annotation."
+  ],
+  "pilot_csv_sha256": "4125e165b80fe7de6f57703558094348f34e559c4d5dfc4adc15d1c2d9f1a31b"
+}
